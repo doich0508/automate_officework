@@ -19,7 +19,4 @@ def func_post_slack(token_url, text):
     req = request.Request(token_url, data=json_byte, method=METHOD)
     urllib.request.urlopen(req)
 
-# test
-if __name__ == '__main__':
-    func_post_slack('https://hooks.slack.com/services/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', {'text': 'test'})
 

@@ -13,6 +13,7 @@ ELEMENT_PASS = 'password'
 ELEMENT_SUBMIT = 'loginSubmit'
 ELEMENT_INFO = "//a[@data-hashcmd='infoindex']"
 START_TEXT = '未読のお知らせがあります。'
+NULL_TEXT = '未読のお知らせはありません。'
 MAIN_URL = 'https://gws41.j-motto.co.jp/cgi-bin/JM0586825/dneo.cgi?'
 # コマンド用
 KILL_FIREFOX = 'pkill -f firefox'
@@ -54,13 +55,17 @@ def func_make_text(enter_password):
     出力：辞書型配列{'text':return_text}
     """
     get_text = get_information(LOGIN, enter_password)
-    return_text = START_TEXT
-    for item in get_text:
-        return_text += "\n" + item
-    # 処理が終わったらfirefoxをkillする
-    system(KILL_FIREFOX)
-    system(KILL_FIREFOX_APP)
-    return {'text': return_text}
+    if get_text:
+        return_text = START_TEXT
+        for item in get_text:
+            return_text += "\n" + item
+        # 処理が終わったらfirefoxをkillする
+        system(KILL_FIREFOX)
+        system(KILL_FIREFOX_APP)
+        return {'text': return_text}
+    else:
+        return_text = NULL_TEXT
+        return {'text': return_text}
 
 # test
 if __name__ == '__main__':

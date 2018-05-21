@@ -55,7 +55,3 @@ def enter_password():
     return password_first
 
 
-# test
-if __name__ == '__main__':
-    assert1, assert2 = func_password()
-    print(assert1, assert2)
