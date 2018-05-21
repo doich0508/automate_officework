@@ -5,8 +5,8 @@ from time import sleep
 from os import system
 
 LOGIN = 'https://www1.j-motto.co.jp/fw/dfw/po80/portal/jsp/J10201.jsp?https://www1.j-motto.co.jp/fw/dfw/gws/cgi-bin/aspioffice/iocjmtgw.cgi?cmd=login'
-ORG_ID = 'JM0586825'
-USRE_ID = '02017'
+ORG_ID = 'JM0586825' # 組織ID
+USRE_ID = '02017' # 会員番号
 ELEMENT_ORG = 'memberID'
 ELEMENT_USER = 'userID'
 ELEMENT_PASS = 'password'

@@ -1,10 +1,13 @@
 # coding: utf-8
 import base64
+import os
 from os.path import isfile
+from os.path import exists
 import getpass
 
 # 定数宣言
 PATH = "./pass/hash.txt"
+DIR_PATH = './pass'
 ENCODING = 'utf-8'
 
 
@@ -18,6 +21,8 @@ def func_password():
         password(パスワード)
         token(slack投稿用トークン)
     """
+    if not(os.path.exists(DIR_PATH)):
+        os.mkdir(DIR_PATH)
 
     if isfile(PATH):
         # ファイルのパスがあるときは符号化したパスワードとトークンを
